@@ -21,6 +21,17 @@ await expect(input).toBeEmpty();
 
 
 // write something into input
+test("input added", async( {page}) => {
+    await page.goto(url);
+
+    const input =  page.getByRole('textbox',{ name: 'New Todo:' })
+
+    // await page.getByRole('textbox').fill("gym");
+    await input.fill("gym");
+    // await expect(await page.getByRole('textbox').fill("gym")).toHaveText("gym")
+    await expect(input).toHaveText("gym");
+});
+
 // click the add button
 // check if list adds the input
 
