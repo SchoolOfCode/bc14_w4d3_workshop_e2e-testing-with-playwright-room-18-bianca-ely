@@ -47,6 +47,20 @@ test("input added", async( {page}) => {
 });
 
 // click the add button
+
+test("li added", async( {page}) => {
+    await page.goto(url);
+
+    const input =  page.getByRole('textbox',{ name: 'New Todo:' })
+    await input.fill("gym");
+    page.getByRole('button', {name: 'Add'}).click();
+
+    // await expect(await page.getByRole('textbox').fill("gym")).toHaveText("gym")
+
+    // expect the ul to have 1 li
+    await expect(page.getByRole('list')).toHaveCount(1) ;
+
+});
 // check if list adds the input
 
 // check the list item is not ticked
