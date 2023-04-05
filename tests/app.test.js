@@ -17,19 +17,33 @@ const input =  page.getByRole('textbox',{ name: 'New Todo:' })
 
 await expect(input).toBeEmpty();
 
-})
+});
 
 
 // write something into input
+
+
+/*
+function fillInput(){
+    const input2 = document.getElementById('#new-todo')
+    input2.textContent = 'gym'
+    return input2.textContent;
+};
+*/
+
 test("input added", async( {page}) => {
     await page.goto(url);
 
     const input =  page.getByRole('textbox',{ name: 'New Todo:' })
 
     // await page.getByRole('textbox').fill("gym");
+
     await input.fill("gym");
+
     // await expect(await page.getByRole('textbox').fill("gym")).toHaveText("gym")
-    await expect(input).toHaveText("gym");
+    
+    await expect(input).toHaveValue('gym');
+
 });
 
 // click the add button
