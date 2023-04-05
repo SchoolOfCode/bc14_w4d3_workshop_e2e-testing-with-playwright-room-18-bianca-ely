@@ -53,7 +53,7 @@ test("li added", async( {page}) => {
 
     const input =  page.getByRole('textbox',{ name: 'New Todo:' })
     await input.fill("gym");
-    page.getByRole('button', {name: 'Add'}).click();
+    await page.getByRole('button', {name: 'Add'}).click();
 
     // await expect(await page.getByRole('textbox').fill("gym")).toHaveText("gym")
 
